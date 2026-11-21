@@ -1,0 +1,4 @@
+# Jour 1 : l'ingestion n'utilise que la bibliothèque standard de Python.
+# On ajoutera les dépendances (LangChain, LangGraph, MCP...) au fur et à mesure.
+-e .
+pytest>=8.0

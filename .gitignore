@@ -1,0 +1,14 @@
+# Environnement Python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+
+# Secrets (clés API) : jamais dans Git
+.env
+
+# Données : elles se re-téléchargent et se régénèrent avec les commandes du projet
+data/raw/
+data/processed/
+data/index/
