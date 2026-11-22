@@ -1,4 +1,8 @@
-# Jour 1 : l'ingestion n'utilise que la bibliothèque standard de Python.
-# On ajoutera les dépendances (LangChain, LangGraph, MCP...) au fur et à mesure.
 -e .
 pytest>=8.0
+
+# Index vectoriel et recherche hybride
+langchain-core>=1.0
+langchain-chroma>=1.0
+fastembed>=0.7
+rank-bm25>=0.2.2
