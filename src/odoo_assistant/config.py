@@ -1,8 +1,12 @@
 """Réglages du projet, regroupés à un seul endroit."""
+import os
 from pathlib import Path
+
+from dotenv import load_dotenv
 
 # --- Dossiers -----------------------------------------------------------------
 ROOT = Path(__file__).resolve().parents[2]
+load_dotenv(ROOT / ".env")  # charge les clés API depuis le fichier .env, s'il existe
 DATA_DIR = ROOT / "data"
 RAW_DIR = DATA_DIR / "raw"              # doc Odoo brute (.rst), une copie par version
 PROCESSED_DIR = DATA_DIR / "processed"  # chunks prêts pour l'indexation (.jsonl)
@@ -32,3 +36,9 @@ COLLECTION_NAME = "odoo_docs"
 TOP_K = 5         # nombre de chunks renvoyés
 CANDIDATES = 20   # nombre de candidats demandés à chaque moteur avant la fusion
 RRF_K = 60        # constante de la fusion RRF (valeur standard)
+
+# --- Génération des réponses --------------------------------------------------
+# Le fournisseur et le modèle se changent dans le fichier .env, sans toucher au code.
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "anthropic")
+LLM_MODEL = os.getenv("LLM_MODEL", "claude-haiku-5-5")
+LLM_MAX_TOKENS = 4000  # longueur maximale d'une réponse, pour borner le coût
